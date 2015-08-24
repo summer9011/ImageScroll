@@ -7,10 +7,13 @@
 //
 
 #import "PanoController.h"
+#import "WebViewJavascriptBridge.h"
 
 @interface PanoController ()
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+
+@property (nonatomic, strong) WebViewJavascriptBridge *jsBridge;
 
 @end
 

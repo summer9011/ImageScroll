@@ -34,6 +34,8 @@
 		1861F8AD1B8559DA00E210E9 /* ImageScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1861F8AC1B8559DA00E210E9 /* ImageScrollView.xib */; };
 		1861F8CA1B8598FB00E210E9 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1861F8C91B8598FB00E210E9 /* loading.gif */; };
 		6E21710F1B8B37B700A75EEB /* PanoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E21710E1B8B37B700A75EEB /* PanoController.m */; };
+		6E2171161B8B638F00A75EEB /* WebViewJavascriptBridge.js.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6E2171141B8B638F00A75EEB /* WebViewJavascriptBridge.js.txt */; };
+		6E2171171B8B638F00A75EEB /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2171151B8B638F00A75EEB /* WebViewJavascriptBridge.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +101,9 @@
 		1861F8C91B8598FB00E210E9 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
 		6E21710D1B8B37B700A75EEB /* PanoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanoController.h; sourceTree = "<group>"; };
 		6E21710E1B8B37B700A75EEB /* PanoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanoController.m; sourceTree = "<group>"; };
+		6E2171131B8B638F00A75EEB /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge.h; sourceTree = "<group>"; };
+		6E2171141B8B638F00A75EEB /* WebViewJavascriptBridge.js.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WebViewJavascriptBridge.js.txt; sourceTree = "<group>"; };
+		6E2171151B8B638F00A75EEB /* WebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +145,7 @@
 		1861F8501B85573900E210E9 /* imageScroll */ = {
 			isa = PBXGroup;
 			children = (
+				6E2171121B8B637D00A75EEB /* WebViewJavascriptBridge */,
 				1861F8C91B8598FB00E210E9 /* loading.gif */,
 				1861F8771B85596600E210E9 /* SDWebImage */,
 				1861F8551B85573900E210E9 /* AppDelegate.h */,
@@ -225,6 +231,16 @@
 			name = SDWebImage;
 			sourceTree = "<group>";
 		};
+		6E2171121B8B637D00A75EEB /* WebViewJavascriptBridge */ = {
+			isa = PBXGroup;
+			children = (
+				6E2171141B8B638F00A75EEB /* WebViewJavascriptBridge.js.txt */,
+				6E2171131B8B638F00A75EEB /* WebViewJavascriptBridge.h */,
+				6E2171151B8B638F00A75EEB /* WebViewJavascriptBridge.m */,
+			);
+			name = WebViewJavascriptBridge;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -307,6 +323,7 @@
 			files = (
 				1861F85D1B85573900E210E9 /* Main.storyboard in Resources */,
 				1861F8AD1B8559DA00E210E9 /* ImageScrollView.xib in Resources */,
+				6E2171161B8B638F00A75EEB /* WebViewJavascriptBridge.js.txt in Resources */,
 				1861F8CA1B8598FB00E210E9 /* loading.gif in Resources */,
 				1861F8621B85573900E210E9 /* LaunchScreen.xib in Resources */,
 				1861F85F1B85573900E210E9 /* Images.xcassets in Resources */,
@@ -330,6 +347,7 @@
 				1861F8A61B85597200E210E9 /* UIImageView+HighlightedWebCache.m in Sources */,
 				1861F89A1B85597200E210E9 /* NSData+ImageContentType.m in Sources */,
 				1861F8A01B85597200E210E9 /* SDWebImageManager.m in Sources */,
+				6E2171171B8B638F00A75EEB /* WebViewJavascriptBridge.m in Sources */,
 				1861F89E1B85597200E210E9 /* SDWebImageDownloader.m in Sources */,
 				1861F8A51B85597200E210E9 /* UIImage+WebP.m in Sources */,
 				1861F8A81B85597200E210E9 /* UIView+WebCacheOperation.m in Sources */,
