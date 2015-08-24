@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Nb-up-nTm">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MS1-H7-IIR">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="MS1-H7-IIR" secondAttribute="bottom" id="APp-ki-OZz"/>
+                <constraint firstAttribute="trailing" secondItem="MS1-H7-IIR" secondAttribute="trailing" id="C6K-Jp-rBQ"/>
+                <constraint firstAttribute="trailing" secondItem="1Nb-up-nTm" secondAttribute="trailing" id="Em2-Iy-pW7"/>
+                <constraint firstItem="1Nb-up-nTm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GHO-Fl-Jyd"/>
+                <constraint firstAttribute="bottom" secondItem="1Nb-up-nTm" secondAttribute="bottom" id="IT4-p7-DOV"/>
+                <constraint firstItem="MS1-H7-IIR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="NwZ-xk-WTx"/>
+                <constraint firstItem="MS1-H7-IIR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ifN-xk-YCh"/>
+                <constraint firstItem="1Nb-up-nTm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="zD6-QF-fiy"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="359" y="361"/>
+        </view>
+    </objects>
+</document>
