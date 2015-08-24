@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>krpano iPhone</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+</head>
+<body>
+    <div id="krpanoDIV" style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%"></div>
+    <script src="./embedpano.js"></script>
+    <script>
+        //浏览器版本判断
+        if (createPanoViewer().isHTML5possible()) {
+            embedpano({xml: "./default.xml", swf:"./krpano.swf", id:"krpanoSWFObject", html5:"only", target: "krpanoDIV", passQueryParameters: true, onready: krpanoReady, onerror: krpanoError});
+        } else {
+            console.log('浏览器不支持HTML5');
+        }
+        
+        //全景Ready
+        function krpanoReady(krpano) {
+            //全景Completed
+            krpano.set("events.onloadcomplete", function() {
+                console.log("加载完成");
+            });
+            
+            //全景MouseUp
+            krpano.set("events.onmouseup", function() {
+                console.log("鼠标点击");
+            });
+            
+            console.log("准备");
+                krpano.call("loadpano('./weingut/tour.xml',null,MERGE,BLEND(0));");
+        }
+        
+        //全景错误
+        function krpanoError(error) {
+            console.log("错误：" + error);
+        }
+    </script>
+
+</body>
+</html>

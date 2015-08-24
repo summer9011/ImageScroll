@@ -23,19 +23,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    self.navigationItem.title = @"图片浏览器";
+    
     self.images = @[
-//                        @"http://www.dabaoku.com/sucaidatu/dongwu/dongwushijie/027503.JPG",
-//                        @"http://bbsimg.qianlong.com/data/attachment/forum/201410/08/134537d565rdmar6cirrdc.jpg",
-//                        @"http://pic49.nipic.com/file/20140928/14386371_184318185000_2.jpg",
-//                        @"http://funpicimg.loveinhere.com/1008/1/p_1996.jpg",
-//                        @"http://pic49.nipic.com/file/20140928/14386371_202320086000_2.jpg",
-//                        @"http://pic49.nipic.com/file/20140928/14386371_201059337000_2.jpg",
-//                        @"http://pic49.nipic.com/file/20140928/14386371_215730739000_2.jpg",
-//                        @"http://img3.3lian.com/2014/c1/23/d/72.jpg",
-//                        @"http://www.dabaoku.com/sucaidatu/dongwu/dongwushijie/091263.JPG",
-//                        @"http://h.hiphotos.baidu.com/image/pic/item/0ff41bd5ad6eddc42664dff13bdbb6fd5266333c.jpg",
-//                        @"http://b.hiphotos.baidu.com/image/pic/item/d0c8a786c9177f3e2675b00a72cf3bc79f3d5677.jpg",
-//                        @"http://d.hiphotos.baidu.com/image/pic/item/faf2b2119313b07ed9312adf08d7912396dd8c5c.jpg",
+                        @"http://www.dabaoku.com/sucaidatu/dongwu/dongwushijie/027503.JPG",
+                        @"http://bbsimg.qianlong.com/data/attachment/forum/201410/08/134537d565rdmar6cirrdc.jpg",
+                        @"http://pic49.nipic.com/file/20140928/14386371_184318185000_2.jpg",
+                        @"http://funpicimg.loveinhere.com/1008/1/p_1996.jpg",
+                        @"http://pic49.nipic.com/file/20140928/14386371_202320086000_2.jpg",
+                        @"http://pic49.nipic.com/file/20140928/14386371_201059337000_2.jpg",
+                        @"http://pic49.nipic.com/file/20140928/14386371_215730739000_2.jpg",
+                        @"http://img3.3lian.com/2014/c1/23/d/72.jpg",
+                        @"http://www.dabaoku.com/sucaidatu/dongwu/dongwushijie/091263.JPG",
+                        @"http://h.hiphotos.baidu.com/image/pic/item/0ff41bd5ad6eddc42664dff13bdbb6fd5266333c.jpg",
+                        @"http://b.hiphotos.baidu.com/image/pic/item/d0c8a786c9177f3e2675b00a72cf3bc79f3d5677.jpg",
+                        @"http://d.hiphotos.baidu.com/image/pic/item/faf2b2119313b07ed9312adf08d7912396dd8c5c.jpg",
                         @"http://g.hiphotos.baidu.com/image/pic/item/b2de9c82d158ccbf3a66cfed1dd8bc3eb035410a.jpg",
                         @"http://d.hiphotos.baidu.com/image/pic/item/fc1f4134970a304e468eda2dd5c8a786c8175cbc.jpg",
                         @"http://d.hiphotos.baidu.com/image/pic/item/00e93901213fb80e505f1b0032d12f2eb838945e.jpg"

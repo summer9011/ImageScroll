@@ -33,6 +33,7 @@
 		1861F8AB1B8559BE00E210E9 /* ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1861F8AA1B8559BE00E210E9 /* ImageScrollView.m */; };
 		1861F8AD1B8559DA00E210E9 /* ImageScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1861F8AC1B8559DA00E210E9 /* ImageScrollView.xib */; };
 		1861F8CA1B8598FB00E210E9 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1861F8C91B8598FB00E210E9 /* loading.gif */; };
+		6E21710F1B8B37B700A75EEB /* PanoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E21710E1B8B37B700A75EEB /* PanoController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,8 @@
 		1861F8AA1B8559BE00E210E9 /* ImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollView.m; sourceTree = "<group>"; };
 		1861F8AC1B8559DA00E210E9 /* ImageScrollView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageScrollView.xib; sourceTree = "<group>"; };
 		1861F8C91B8598FB00E210E9 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
+		6E21710D1B8B37B700A75EEB /* PanoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanoController.h; sourceTree = "<group>"; };
+		6E21710E1B8B37B700A75EEB /* PanoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanoController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +146,8 @@
 				1861F8561B85573900E210E9 /* AppDelegate.m */,
 				1861F8581B85573900E210E9 /* ViewController.h */,
 				1861F8591B85573900E210E9 /* ViewController.m */,
+				6E21710D1B8B37B700A75EEB /* PanoController.h */,
+				6E21710E1B8B37B700A75EEB /* PanoController.m */,
 				1861F85B1B85573900E210E9 /* Main.storyboard */,
 				1861F85E1B85573900E210E9 /* Images.xcassets */,
 				1861F8601B85573900E210E9 /* LaunchScreen.xib */,
@@ -333,6 +338,7 @@
 				1861F8991B85597200E210E9 /* MKAnnotationView+WebCache.m in Sources */,
 				1861F8AB1B8559BE00E210E9 /* ImageScrollView.m in Sources */,
 				1861F89D1B85597200E210E9 /* SDWebImageDecoder.m in Sources */,
+				6E21710F1B8B37B700A75EEB /* PanoController.m in Sources */,
 				1861F8A41B85597200E210E9 /* UIImage+MultiFormat.m in Sources */,
 				1861F89F1B85597200E210E9 /* SDWebImageDownloaderOperation.m in Sources */,
 				1861F8571B85573900E210E9 /* AppDelegate.m in Sources */,
@@ -538,6 +544,7 @@
 				1861F8731B85573900E210E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1861F8741B85573900E210E9 /* Build configuration list for PBXNativeTarget "imageScrollTests" */ = {
 			isa = XCConfigurationList;
@@ -546,6 +553,7 @@
 				1861F8761B85573900E210E9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
