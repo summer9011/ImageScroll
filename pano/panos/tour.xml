@@ -1,0 +1,43 @@
+<krpano>
+    <!-- 场景 -->
+    <scene name="scene1" title="scene1">
+        <!-- 设置场景的初始视角 -->
+        <view hlookat="50" vlookat="25" fovtype="MFOV" fov="100" fovmin="60" fovmax="120" />
+        <!-- 预览图片 -->
+        <preview url="scene1/preview.jpg" />
+        <!-- 场景图片6张 -->
+        <image>
+            <cube url="scene1/mobile_%s.jpg" />
+        </image>
+    </scene>
+    
+    <scene name="scene2" title="scene2">
+        <!-- 设置场景的初始视角 -->
+        <view hlookat="50" vlookat="25" fovtype="MFOV" fov="100" fovmin="60" fovmax="120" />
+        <!-- 预览图片 -->
+        <preview url="scene2/preview.jpg" />
+        <!-- 场景图片6张 -->
+        <image>
+            <cube url="scene2/mobile_%s.jpg" />
+        </image>
+    </scene>
+    
+    <scene name="scene3" title="scene3">
+        <!-- 设置场景的初始视角 -->
+        <view hlookat="50" vlookat="25" fovtype="MFOV" fov="100" fovmin="60" fovmax="120" />
+        <!-- 预览图片 -->
+        <preview url="scene3/preview.jpg" />
+        <!-- 场景图片6张 -->
+        <image>
+            <cube url="scene3/mobile_%s.jpg" />
+        </image>
+    </scene>
+    
+    <!-- 数据 -->
+    <data name="scene1_data">[{"action":"goScene", "sceneName":"scene2", "h":"11", "v":"6"}]</data>
+    
+    <data name="scene2_data">[{"action":"goScene", "sceneName":"scene3", "h":"11", "v":"6"}, {"action":"showPic", "picPath":"", "h":"130.5", "v":"10.4"}]</data>
+    
+    <data name="scene3_data">[{"action":"goScene", "sceneName":"scene1", "h":"46.2", "v":"13.9"}]</data>
+    
+</krpano>

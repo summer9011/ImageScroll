@@ -23,6 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    self.navigationController.navigationBarHidden = NO;
     self.navigationItem.title = @"图片浏览器";
     
     self.images = @[

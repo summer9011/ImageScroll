@@ -53,12 +53,24 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="FDc-21-yn1"/>
-                                    <barButtonItem title="下一个" id="c1V-VM-Pqb">
+                                    <barButtonItem tag="1" title="场景1" id="c1V-VM-Pqb">
                                         <connections>
-                                            <action selector="nextPano:" destination="UW0-sq-rfM" id="LwP-6a-ZUp"/>
+                                            <action selector="goPano:" destination="UW0-sq-rfM" id="jCa-4a-Nwp"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="YzQ-XU-Eoj"/>
+                                    <barButtonItem tag="2" title="场景2" id="PvO-3l-Xog">
+                                        <connections>
+                                            <action selector="goPano:" destination="UW0-sq-rfM" id="hF2-iy-KHJ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Ztt-Sq-uDs"/>
+                                    <barButtonItem tag="3" title="场景3" id="lc4-2I-fcz">
+                                        <connections>
+                                            <action selector="goPano:" destination="UW0-sq-rfM" id="JJ8-ak-fRh"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="PZt-hG-JKu"/>
                                     <barButtonItem title="重新加载" id="I9d-VT-0mL">
                                         <connections>
                                             <action selector="reloadPano:" destination="UW0-sq-rfM" id="zh3-SR-v31"/>
@@ -105,7 +117,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="图片浏览器" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jWp-fb-SoP">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -122,7 +134,7 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="720全景" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9AK-of-Hfn">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>

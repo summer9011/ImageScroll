@@ -7,13 +7,13 @@
 //
 
 #import "PanoController.h"
-#import "WebViewJavascriptBridge.h"
 
 @interface PanoController ()
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
-@property (nonatomic, strong) WebViewJavascriptBridge *jsBridge;
+@property (nonatomic, strong) NSArray *panoArr;
+@property (nonatomic, strong) NSString *currentScene;
 
 @end
 
@@ -24,7 +24,11 @@
     
     self.navigationController.navigationBarHidden = YES;
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/pano/"];
+    self.panoArr = @[
+                     @"http://localhost/pano/panos/tour.xml"
+                     ];
+    
+    NSURL *url = [NSURL URLWithString:@"http://localhost/pano/"];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     [self.webView loadRequest:request];
 }
@@ -33,32 +37,52 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)nextPano:(id)sender {
-    NSLog(@"下一个全景");
+- (IBAction)goPano:(id)sender {
+    UIBarButtonItem *buttonItem = (UIBarButtonItem *)sender;
+    
+    NSString *scene = [NSString stringWithFormat:@"scene%ld", buttonItem.tag];
+    if (![scene isEqualToString:self.currentScene]) {
+        self.currentScene = scene;
+        [self loadScene];
+    }
+    
 }
 
 - (IBAction)reloadPano:(id)sender {
-    NSLog(@"重新加载");
+    NSString *loadScene = [NSString stringWithFormat:@"getSceneData('%@')", self.currentScene];
+    [self.webView stringByEvaluatingJavaScriptFromString:loadScene];
+}
+
+//进入场景
+- (void)loadScene {
+    NSString *loadScene = [NSString stringWithFormat:@"goScene('%@')", self.currentScene];
+    [self.webView stringByEvaluatingJavaScriptFromString:loadScene];
 }
 
 #pragma mark - UIWebViewDelegate
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    NSLog(@"absoluteString %@, fragment %@", request.URL.absoluteString, request.URL.fragment);
+    
+    NSString *fragment = request.URL.fragment;
+    NSLog(@"%@", fragment);
+    
+    if ([fragment isEqualToString:@"ready"]) {
+        NSString *loadPano = [NSString stringWithFormat:@"goPano('%@')", self.panoArr[0]];
+        [self.webView stringByEvaluatingJavaScriptFromString:loadPano];
+        
+        self.currentScene = @"scene1";
+        [self loadScene];
+    }
+    
+    if ([fragment isEqualToString:@"complete"]) {
+        NSLog(@"完成");
+    }
+    
+    if ([fragment isEqualToString:@"error"]) {
+        NSLog(@"全景加载失败");
+    }
     
     return YES;
-}
-
-- (void)webViewDidStartLoad:(UIWebView *)webView {
-    
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    
-}
-
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    
 }
 
 @end
