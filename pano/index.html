@@ -10,7 +10,9 @@
     <script src="./embedpano.js"></script>
     <script>
         var krpano = null;
+        
         var currentSceneName = null;
+        var selectedJson = null;
         
         //浏览器版本判断
         if (createPanoViewer().isHTML5possible()) {
@@ -25,15 +27,13 @@
             
             //全景Completed
             krpano.set("events.onloadcomplete", function() {
-                location.href = "#complete";
-                
                 getSceneData(currentSceneName);
+                location.href = "#complete";
             });
             
             //全景MouseUp
             krpano.set("events.onmouseup", function() {
                 location.href = "#mouseup";
-//                location.href = "#x"+krpano.get("mouse.x")+"y"+krpano.get("mouse.y");
             });
             
             location.href = "#ready";
@@ -46,12 +46,13 @@
         
         //加载pano, 默认场景为0
         function goPano(panoName) {
-            krpano.call("loadpano('" + panoName + "', null, MERGE,BLEND(0.5));");
+            var d=new Date();
+            krpano.call("loadpano('" + panoName + "?v="+d.getTime()+"', null, MERGE,BLEND(0.5));");
         }
         
         //加载场景
         function goScene(sceneName) {
-            currentSceneName = sceneName;
+            setCurrentSceneName(sceneName);
             krpano.call("loadscene("+sceneName+", null, MERGE);");
         }
         
@@ -63,34 +64,55 @@
             //在全景中增加事件
             if(jsonStr !== null) {
                 for(var index in jsonObj) {
+                    var hotspotName = sceneName+"_hotspot"+index;
+                    
+                    //进入下一个场景
                     if(jsonObj[index].action == "goScene") {
-                        var hotspotName = sceneName+"_hotspot"+index;
-                        
                         krpano.call("addhotspot("+hotspotName+")");
                         
-                        krpano.set("hotspot["+hotspotName+"].url", "./hotspot.png");
+                        krpano.set("hotspot["+hotspotName+"].url", "hotspot.png");
                         krpano.set("hotspot["+hotspotName+"].zoom", true);
                         krpano.set("hotspot["+hotspotName+"].scale", 0.5);
                         krpano.set("hotspot["+hotspotName+"].ath", jsonObj[index].h);
                         krpano.set("hotspot["+hotspotName+"].atv", jsonObj[index].v);
-                        krpano.set("hotspot["+hotspotName+"].onclick", "js(goScene("+jsonObj[index].sceneName+"));");
+                        krpano.set("hotspot["+hotspotName+"].onclick", "js(goScene("+jsonObj[index].data+"));");
                     }
                     
-                    if(jsonObj[index].action == "showPic") {
-                        addShowPicHotspot(jsonObj[index]);
+                    //显示图片、文字
+                    if(jsonObj[index].action == "showPic" || jsonObj[index].action == "showText") {
+                        krpano.call("addhotspot("+hotspotName+")");
+                        
+                        krpano.set("hotspot["+hotspotName+"].url", "zoomicon.png");
+                        krpano.set("hotspot["+hotspotName+"].zoom", true);
+                        krpano.set("hotspot["+hotspotName+"].scale", 0.6);
+                        krpano.set("hotspot["+hotspotName+"].ath", jsonObj[index].h);
+                        krpano.set("hotspot["+hotspotName+"].atv", jsonObj[index].v);
+                        krpano.set("hotspot["+hotspotName+"].onclick", "js(setSelectedJson("+jsonObj[index].data+"));");
                     }
                 }
             }
         }
         
-        //添加进入下一场景的spot
-        function addGoSceneHotspot(obj) {
-            
+        //设置当前场景的名字
+        function setCurrentSceneName(sceneName) {
+            currentSceneName = sceneName;
+            location.href = "#currentScene";
         }
         
-        //添加显示图片的spot
-        function addShowPicHotspot(obj) {
-            
+        //获取当前场景的名字
+        function getCurrentSceneName() {
+            return currentSceneName;
+        }
+        
+        //设置选中的数据
+        function setSelectedJson(json) {
+            selectedJson = json;
+            location.href = "#selectedJson";
+        }
+        
+        //获取选中的数据
+        function getSelectedJson() {
+            return selectedJson;
         }
         
     </script>

@@ -34,10 +34,10 @@
     </scene>
     
     <!-- 数据 -->
-    <data name="scene1_data">[{"action":"goScene", "sceneName":"scene2", "h":"11", "v":"6"}]</data>
+    <data name="scene1_data">[{"action":"goScene", "data":"scene2", "h":"11", "v":"6"}, {"action":"showPic", "data":"http://192.168.0.100/pano/panos/scene1/pic.jpg", "h":"46.5", "v":"3"}]</data>
     
-    <data name="scene2_data">[{"action":"goScene", "sceneName":"scene3", "h":"11", "v":"6"}, {"action":"showPic", "picPath":"", "h":"130.5", "v":"10.4"}]</data>
+    <data name="scene2_data">[{"action":"goScene", "data":"scene3", "h":"11", "v":"6"}, {"action":"showPic", "data":"", "h":"46.5", "v":"3"}]</data>
     
-    <data name="scene3_data">[{"action":"goScene", "sceneName":"scene1", "h":"46.2", "v":"13.9"}]</data>
+    <data name="scene3_data">[{"action":"goScene", "data":"scene1", "h":"46.2", "v":"13.9"}]</data>
     
 </krpano>

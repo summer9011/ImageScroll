@@ -25,12 +25,19 @@
     self.navigationController.navigationBarHidden = YES;
     
     self.panoArr = @[
-                     @"http://localhost/pano/panos/tour.xml"
+                     @"http://192.168.0.100/pano/panos/tour.xml"
                      ];
     
-    NSURL *url = [NSURL URLWithString:@"http://localhost/pano/"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/pano/"];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     [self.webView loadRequest:request];
+}
+
+- (void)dealloc {
+    self.webView.delegate = nil;
+    self.webView = nil;
+    
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
 - (IBAction)goBack:(id)sender {
@@ -64,7 +71,6 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     
     NSString *fragment = request.URL.fragment;
-    NSLog(@"%@", fragment);
     
     if ([fragment isEqualToString:@"ready"]) {
         NSString *loadPano = [NSString stringWithFormat:@"goPano('%@')", self.panoArr[0]];
@@ -72,14 +78,40 @@
         
         self.currentScene = @"scene1";
         [self loadScene];
+        
+        return NO;
+    }
+    
+    if ([fragment isEqualToString:@"currentScene"]) {
+        NSString *sceneName = [self.webView stringByEvaluatingJavaScriptFromString:@"getCurrentSceneName()"];
+        self.currentScene = sceneName;
+        
+        return NO;
+    }
+    
+    if ([fragment isEqualToString:@"selectedJson"]) {
+        NSString *data = [self.webView stringByEvaluatingJavaScriptFromString:@"getSelectedJson()"];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"选中的内容" message:data delegate:nil cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        return NO;
+    }
+    
+    if ([fragment isEqualToString:@"mouseup"]) {
+        return NO;
     }
     
     if ([fragment isEqualToString:@"complete"]) {
         NSLog(@"完成");
+        
+        return NO;
     }
     
     if ([fragment isEqualToString:@"error"]) {
         NSLog(@"全景加载失败");
+        
+        return NO;
     }
     
     return YES;
