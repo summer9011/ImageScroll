@@ -158,6 +158,59 @@
             </objects>
             <point key="canvasLocation" x="1916" y="1617"/>
         </scene>
+        <!--Pic Handler Controller-->
+        <scene sceneID="s4n-Ab-KW0">
+            <objects>
+                <viewController id="4O1-BR-l9L" customClass="PicHandlerController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Guh-G2-mNx"/>
+                        <viewControllerLayoutGuide type="bottom" id="RTm-7I-OcC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oAZ-ye-RHl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8D-KN-Keb">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                <connections>
+                                    <outlet property="delegate" destination="4O1-BR-l9L" id="LFG-wY-Dyt"/>
+                                </connections>
+                            </scrollView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZt-Vc-mDQ">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="3nU-Cv-Mz3"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="amF-g9-xgr"/>
+                                    <barButtonItem title="增加贴图" id="yRT-H3-Teh">
+                                        <connections>
+                                            <action selector="addPic:" destination="4O1-BR-l9L" id="Tnz-2Z-Ov4"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="XYs-Er-010"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="D8D-KN-Keb" firstAttribute="top" secondItem="oAZ-ye-RHl" secondAttribute="top" id="1Cw-fD-dFd"/>
+                            <constraint firstItem="AZt-Vc-mDQ" firstAttribute="top" secondItem="D8D-KN-Keb" secondAttribute="bottom" id="4Vb-It-vmU"/>
+                            <constraint firstAttribute="trailing" secondItem="AZt-Vc-mDQ" secondAttribute="trailing" id="G9t-nt-3iK"/>
+                            <constraint firstItem="RTm-7I-OcC" firstAttribute="top" secondItem="AZt-Vc-mDQ" secondAttribute="bottom" id="Pbs-dK-Oua"/>
+                            <constraint firstItem="AZt-Vc-mDQ" firstAttribute="leading" secondItem="oAZ-ye-RHl" secondAttribute="leading" id="VJc-qE-c0Z"/>
+                            <constraint firstItem="D8D-KN-Keb" firstAttribute="leading" secondItem="oAZ-ye-RHl" secondAttribute="leading" id="uiz-Jm-XGs"/>
+                            <constraint firstAttribute="trailing" secondItem="D8D-KN-Keb" secondAttribute="trailing" id="xfp-e8-UWV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="D8D-KN-Keb" id="by8-LN-IJM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ygT-MG-GhF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1916" y="2305"/>
+        </scene>
         <!--Root View Controller-->
         <scene sceneID="29O-Wr-GZL">
             <objects>
@@ -218,6 +271,23 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="uUq-UQ-0qB" kind="show" id="DJA-k6-cm4"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="ux3-GJ-gIj" style="IBUITableViewCellStyleDefault" id="cen-kH-Eqg">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cen-kH-Eqg" id="F5j-Vl-cGR">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="贴图处理" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ux3-GJ-gIj">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="4O1-BR-l9L" kind="show" id="vgP-1f-Xca"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>

@@ -34,6 +34,9 @@
 		1861F8AD1B8559DA00E210E9 /* ImageScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1861F8AC1B8559DA00E210E9 /* ImageScrollView.xib */; };
 		1861F8CA1B8598FB00E210E9 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1861F8C91B8598FB00E210E9 /* loading.gif */; };
 		18FA6C331B8D68160038BF37 /* BridgeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FA6C321B8D68160038BF37 /* BridgeController.m */; };
+		18FA6C361B8D94DB0038BF37 /* PicHandlerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FA6C351B8D94DB0038BF37 /* PicHandlerController.m */; };
+		18FA6C381B8D965E0038BF37 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 18FA6C371B8D965E0038BF37 /* 1.jpg */; };
+		18FA6C421B8DB8A20038BF37 /* pic.png in Resources */ = {isa = PBXBuildFile; fileRef = 18FA6C411B8DB8A20038BF37 /* pic.png */; };
 		6E21710F1B8B37B700A75EEB /* PanoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E21710E1B8B37B700A75EEB /* PanoController.m */; };
 		6E2171161B8B638F00A75EEB /* WebViewJavascriptBridge.js.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6E2171141B8B638F00A75EEB /* WebViewJavascriptBridge.js.txt */; };
 		6E2171171B8B638F00A75EEB /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2171151B8B638F00A75EEB /* WebViewJavascriptBridge.m */; };
@@ -102,6 +105,10 @@
 		1861F8C91B8598FB00E210E9 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
 		18FA6C311B8D68160038BF37 /* BridgeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeController.h; sourceTree = "<group>"; };
 		18FA6C321B8D68160038BF37 /* BridgeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridgeController.m; sourceTree = "<group>"; };
+		18FA6C341B8D94DB0038BF37 /* PicHandlerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PicHandlerController.h; sourceTree = "<group>"; };
+		18FA6C351B8D94DB0038BF37 /* PicHandlerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PicHandlerController.m; sourceTree = "<group>"; };
+		18FA6C371B8D965E0038BF37 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		18FA6C411B8DB8A20038BF37 /* pic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pic.png; sourceTree = "<group>"; };
 		6E21710D1B8B37B700A75EEB /* PanoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanoController.h; sourceTree = "<group>"; };
 		6E21710E1B8B37B700A75EEB /* PanoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanoController.m; sourceTree = "<group>"; };
 		6E2171131B8B638F00A75EEB /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge.h; sourceTree = "<group>"; };
@@ -151,6 +158,8 @@
 				1861F8771B85596600E210E9 /* SDWebImage */,
 				6E2171121B8B637D00A75EEB /* WebViewJavascriptBridge */,
 				1861F8C91B8598FB00E210E9 /* loading.gif */,
+				18FA6C371B8D965E0038BF37 /* 1.jpg */,
+				18FA6C411B8DB8A20038BF37 /* pic.png */,
 				1861F8551B85573900E210E9 /* AppDelegate.h */,
 				1861F8561B85573900E210E9 /* AppDelegate.m */,
 				1861F8581B85573900E210E9 /* ViewController.h */,
@@ -159,6 +168,8 @@
 				6E21710E1B8B37B700A75EEB /* PanoController.m */,
 				18FA6C311B8D68160038BF37 /* BridgeController.h */,
 				18FA6C321B8D68160038BF37 /* BridgeController.m */,
+				18FA6C341B8D94DB0038BF37 /* PicHandlerController.h */,
+				18FA6C351B8D94DB0038BF37 /* PicHandlerController.m */,
 				1861F85B1B85573900E210E9 /* Main.storyboard */,
 				1861F85E1B85573900E210E9 /* Images.xcassets */,
 				1861F8601B85573900E210E9 /* LaunchScreen.xib */,
@@ -332,6 +343,8 @@
 				1861F8CA1B8598FB00E210E9 /* loading.gif in Resources */,
 				1861F8621B85573900E210E9 /* LaunchScreen.xib in Resources */,
 				1861F85F1B85573900E210E9 /* Images.xcassets in Resources */,
+				18FA6C421B8DB8A20038BF37 /* pic.png in Resources */,
+				18FA6C381B8D965E0038BF37 /* 1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +385,7 @@
 				1861F89C1B85597200E210E9 /* SDWebImageCompat.m in Sources */,
 				1861F8A31B85597200E210E9 /* UIImage+GIF.m in Sources */,
 				1861F8541B85573900E210E9 /* main.m in Sources */,
+				18FA6C361B8D94DB0038BF37 /* PicHandlerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
