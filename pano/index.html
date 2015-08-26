@@ -51,9 +51,23 @@
         }
         
         //加载场景
-        function goScene(sceneName) {
+        function goScene(sceneName, th, tv) {
             setCurrentSceneName(sceneName);
+            
+            //进入场景动画
+            krpano.call("set(enabled, false);");
+            krpano.call("set(view.maxpixelzoom,null);");
+            krpano.call("set(view.fovmin,28);");
+            krpano.call("lookto("+th+", "+tv+", 42);");
+            
             krpano.call("loadscene("+sceneName+", null, MERGE);");
+            
+            //切换场景后的环绕动画
+            krpano.call("lookat(-94, 19, 97);");
+            krpano.call("wait(LOAD);");
+            krpano.call("oninterrupt(break);");
+            krpano.call("wait(BLEND);");
+            krpano.call("lookto(-352.7, -1.6, 108, smooth(45,45,60), false);");
         }
         
         //获取场景相关数据
@@ -75,7 +89,7 @@
                         krpano.set("hotspot["+hotspotName+"].scale", 0.5);
                         krpano.set("hotspot["+hotspotName+"].ath", jsonObj[index].h);
                         krpano.set("hotspot["+hotspotName+"].atv", jsonObj[index].v);
-                        krpano.set("hotspot["+hotspotName+"].onclick", "js(goScene("+jsonObj[index].data+"));");
+                        krpano.set("hotspot["+hotspotName+"].onclick", "js(goScene("+jsonObj[index].data+", "+jsonObj[index].h+", "+jsonObj[index].v+"));");
                     }
                     
                     //显示图片、文字

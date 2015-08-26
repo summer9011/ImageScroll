@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>krpano iPhone</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+</head>
+<body>
+    <!-- Pano -->
+    <div id="krpanoDIV" style="position: absolute; left: 35%; top: 280px; width: 500px; height: 500px"></div>
+    
+    <div style="position: absolute; left: 25%; top: 10px;">
+        mouseX: <input type="text" id="mouseX" disabled="disabled" style="width: 50px;" value="" />
+        mouseY: <input type="text" id="mouseY" disabled="disabled" style="width: 50px;" value="" />
+        stageX: <input type="text" id="mouseStageX" disabled="disabled" style="width: 50px;" value="" />
+        stageY: <input type="text" id="mouseStageY" disabled="disabled" style="width: 50px;" value="" />
+        <br /><br />
+        
+        mouseH: <input type="text" id="mouseH" disabled="disabled" value="" />
+        mouseV: <input type="text" id="mouseV" disabled="disabled" value="" />
+        stageH: <input type="text" id="stageH" disabled="disabled" value="" />
+        stageV: <input type="text" id="stageV" disabled="disabled" value="" />
+        <br /><br />
+        
+        <input type="button" value="+增加场景" onclick="addHotspot();" />
+        <br /><br />
+        
+        Name: <input type="text" id="hotspot_name" disabled="disabled" value="" />
+        Th: <input type="text" id="th" disabled="disabled" value="" />
+        Tv: <input type="text" id="tv" disabled="disabled" value="" />
+        <br /><br />
+        
+        Action: <input type="text" id="action" disabled="disabled" value="" />
+        Data: <textarea id="data" style="width: 300px; height: 100px;"></textarea>
+    </div>
+    
+    <script src="./embedpano.js"></script>
+    <script>
+        var krpano = null;
+        
+        var currentSceneName = null;
+        var selectedJson = null;
+        
+        var newHotspotCount = 0;
+        
+        //浏览器版本判断
+        if (createPanoViewer().isHTML5possible()) {
+            embedpano({xml: "./default.xml", swf:"./krpano.swf", id:"krpanoSWFObject", html5:"only", target: "krpanoDIV", passQueryParameters: true, onready: krpanoReady, onerror: krpanoError});
+        } else {
+            console.log('浏览器不支持HTML5');
+        }
+        
+        //全景Ready
+        function krpanoReady(pano) {
+            krpano = pano;
+            
+            //全景Completed
+            krpano.set("events.onloadcomplete", function() {
+                getSceneData(currentSceneName);
+                console.log('complete');
+            });
+            
+            //全景MouseUp
+            krpano.set("events.onmouseup", function() {
+                console.log('mouseup');
+                
+                getCurrentXY();
+            });
+            
+            console.log('ready');
+            
+            //调用相应场景
+            goPano("http://localhost/pano/panos/tour.xml");
+            goScene("scene1");
+        }
+        
+        //全景错误
+        function krpanoError() {
+            console.log('error');
+        }
+        
+        //加载pano, 默认场景为0
+        function goPano(panoName) {
+            var d=new Date();
+            krpano.call("loadpano('" + panoName + "?v="+d.getTime()+"', null, MERGE,BLEND(0.5));");
+        }
+        
+        //加载场景
+        function goScene(sceneName) {
+            setCurrentSceneName(sceneName);
+            krpano.call("loadscene("+sceneName+", null, MERGE);");
+        }
+        
+        //获取场景相关数据
+        function getSceneData(sceneName) {
+            var jsonStr = krpano.get("data["+sceneName+"_data].content");
+            var jsonObj = eval('(' + jsonStr + ')');
+            
+            //在全景中增加事件
+            if(jsonStr !== null) {
+                for(var index in jsonObj) {
+                    var hotspotName = sceneName+"_hotspot"+index;
+                    
+                    //进入下一个场景
+                    if(jsonObj[index].action == "goScene") {
+                        krpano.call("addhotspot("+hotspotName+")");
+                        
+                        krpano.set("hotspot["+hotspotName+"].url", "hotspot.png");
+                        krpano.set("hotspot["+hotspotName+"].zoom", true);
+                        krpano.set("hotspot["+hotspotName+"].distorted", true);
+                        krpano.set("hotspot["+hotspotName+"].scale", 0.5);
+                        krpano.set("hotspot["+hotspotName+"].ath", jsonObj[index].h);
+                        krpano.set("hotspot["+hotspotName+"].atv", jsonObj[index].v);
+                        krpano.set("hotspot["+hotspotName+"].ondown", "draghotspot");
+                        krpano.set("hotspot["+hotspotName+"].onup", "js(handleData("+jsonObj[index].action+", "+jsonObj[index].data+", hotspot["+hotspotName+"]));");
+                    }
+                    
+                    //显示图片、文字
+                    if(jsonObj[index].action == "showPic" || jsonObj[index].action == "showText") {
+                        krpano.call("addhotspot("+hotspotName+")");
+                        
+                        krpano.set("hotspot["+hotspotName+"].url", "zoomicon.png");
+                        krpano.set("hotspot["+hotspotName+"].zoom", true);
+                        krpano.set("hotspot["+hotspotName+"].scale", 0.6);
+                        krpano.set("hotspot["+hotspotName+"].ath", jsonObj[index].h);
+                        krpano.set("hotspot["+hotspotName+"].atv", jsonObj[index].v);
+                        krpano.set("hotspot["+hotspotName+"].ondown", "draghotspot");
+                        krpano.set("hotspot["+hotspotName+"].onup", "js(handleData("+jsonObj[index].action+", "+jsonObj[index].data+", hotspot["+hotspotName+"]));");
+                    }
+                }
+            }
+        }
+        
+        //设置当前场景的名字
+        function setCurrentSceneName(sceneName) {
+            currentSceneName = sceneName;
+            console.log('currentScene');
+        }
+        
+        //获取当前场景的名字
+        function getCurrentSceneName() {
+            return currentSceneName;
+        }
+        
+        //完成拖动后处理数据
+        function handleData(action, data, obj) {
+            var name = krpano.get(obj+".name");
+            var th = krpano.get(obj+".ath");
+            var tv = krpano.get(obj+".atv");
+            
+            document.getElementById('hotspot_name').value = name;
+            document.getElementById('th').value = th;
+            document.getElementById('tv').value = tv;
+            
+            document.getElementById('action').value = action;
+            document.getElementById('data').value = data;
+        }
+        
+        //增加Hotspot
+        function addHotspot() {
+            newHotspotCount ++;
+            
+            var newHotspotName = "newHotspot"+newHotspotCount;
+            
+            krpano.call("addhotspot("+newHotspotName+")");
+            
+            krpano.set("hotspot["+newHotspotName+"].url", "hotspot.png");
+            krpano.set("hotspot["+newHotspotName+"].zoom", true);
+            krpano.set("hotspot["+newHotspotName+"].distorted", true);
+            krpano.set("hotspot["+newHotspotName+"].scale", 0.5);
+            krpano.set("hotspot["+newHotspotName+"].ath", "0");
+            krpano.set("hotspot["+newHotspotName+"].atv", "0");
+            krpano.set("hotspot["+newHotspotName+"].ondown", "draghotspot");
+            krpano.set("hotspot["+newHotspotName+"].onup", "js(handleData('', '', hotspot["+newHotspotName+"]));");
+        }
+        
+        //获取当前地图的参数
+        function getCurrentXY() {
+            var x = krpano.get("mouse.x");
+            var y = krpano.get("mouse.y");
+            var stagex = krpano.get("mouse.stagex");
+            var stagey = krpano.get("mouse.stagey");
+            
+            document.getElementById('mouseX').value = x;
+            document.getElementById('mouseY').value = y;
+            document.getElementById('mouseStageX').value = stagex;
+            document.getElementById('mouseStageY').value = stagey;
+            
+            
+            var mouse = krpano.screentosphere(x, y);
+            var stage = krpano.screentosphere(stagex, stagey);
+            
+            document.getElementById('mouseH').value = mouse.x;
+            document.getElementById('mouseV').value = mouse.y;
+            document.getElementById('stageH').value = stage.x;
+            document.getElementById('stageV').value = stage.y;
+        }
+        
+    </script>
+</body>
+</html>

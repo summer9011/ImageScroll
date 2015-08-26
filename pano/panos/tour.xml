@@ -40,4 +40,27 @@
     
     <data name="scene3_data">[{"action":"goScene", "data":"scene1", "h":"46.2", "v":"13.9"}]</data>
     
+    <!-- 后台设置hotspot时增加 -->
+    <action name="draghotspot">
+	<![CDATA[
+		if(%1 != dragging,
+			spheretoscreen(ath, atv, hotspotcenterx, hotspotcentery);
+			sub(drag_adjustx, mouse.stagex, hotspotcenterx); 
+			sub(drag_adjusty, mouse.stagey, hotspotcentery); 
+			draghotspot(dragging);
+		  ,
+			if(pressed,
+				sub(dx, mouse.stagex, drag_adjustx);
+				sub(dy, mouse.stagey, drag_adjusty);
+				screentosphere(dx, dy, ath, atv);
+				copy(print_ath, ath);
+				copy(print_atv, atv);
+				roundval(print_ath, 3);
+				roundval(print_atv, 3);
+				delayedcall(0, draghotspot(dragging) );
+			  );
+		  );
+	]]>
+	</action>
+    
 </krpano>
