@@ -33,6 +33,7 @@
 		1861F8AB1B8559BE00E210E9 /* ImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1861F8AA1B8559BE00E210E9 /* ImageScrollView.m */; };
 		1861F8AD1B8559DA00E210E9 /* ImageScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1861F8AC1B8559DA00E210E9 /* ImageScrollView.xib */; };
 		1861F8CA1B8598FB00E210E9 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 1861F8C91B8598FB00E210E9 /* loading.gif */; };
+		18FA6C331B8D68160038BF37 /* BridgeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18FA6C321B8D68160038BF37 /* BridgeController.m */; };
 		6E21710F1B8B37B700A75EEB /* PanoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E21710E1B8B37B700A75EEB /* PanoController.m */; };
 		6E2171161B8B638F00A75EEB /* WebViewJavascriptBridge.js.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6E2171141B8B638F00A75EEB /* WebViewJavascriptBridge.js.txt */; };
 		6E2171171B8B638F00A75EEB /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2171151B8B638F00A75EEB /* WebViewJavascriptBridge.m */; };
@@ -99,6 +100,8 @@
 		1861F8AA1B8559BE00E210E9 /* ImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollView.m; sourceTree = "<group>"; };
 		1861F8AC1B8559DA00E210E9 /* ImageScrollView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageScrollView.xib; sourceTree = "<group>"; };
 		1861F8C91B8598FB00E210E9 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
+		18FA6C311B8D68160038BF37 /* BridgeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeController.h; sourceTree = "<group>"; };
+		18FA6C321B8D68160038BF37 /* BridgeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BridgeController.m; sourceTree = "<group>"; };
 		6E21710D1B8B37B700A75EEB /* PanoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PanoController.h; sourceTree = "<group>"; };
 		6E21710E1B8B37B700A75EEB /* PanoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PanoController.m; sourceTree = "<group>"; };
 		6E2171131B8B638F00A75EEB /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge.h; sourceTree = "<group>"; };
@@ -145,15 +148,17 @@
 		1861F8501B85573900E210E9 /* imageScroll */ = {
 			isa = PBXGroup;
 			children = (
+				1861F8771B85596600E210E9 /* SDWebImage */,
 				6E2171121B8B637D00A75EEB /* WebViewJavascriptBridge */,
 				1861F8C91B8598FB00E210E9 /* loading.gif */,
-				1861F8771B85596600E210E9 /* SDWebImage */,
 				1861F8551B85573900E210E9 /* AppDelegate.h */,
 				1861F8561B85573900E210E9 /* AppDelegate.m */,
 				1861F8581B85573900E210E9 /* ViewController.h */,
 				1861F8591B85573900E210E9 /* ViewController.m */,
 				6E21710D1B8B37B700A75EEB /* PanoController.h */,
 				6E21710E1B8B37B700A75EEB /* PanoController.m */,
+				18FA6C311B8D68160038BF37 /* BridgeController.h */,
+				18FA6C321B8D68160038BF37 /* BridgeController.m */,
 				1861F85B1B85573900E210E9 /* Main.storyboard */,
 				1861F85E1B85573900E210E9 /* Images.xcassets */,
 				1861F8601B85573900E210E9 /* LaunchScreen.xib */,
@@ -359,6 +364,7 @@
 				6E21710F1B8B37B700A75EEB /* PanoController.m in Sources */,
 				1861F8A41B85597200E210E9 /* UIImage+MultiFormat.m in Sources */,
 				1861F89F1B85597200E210E9 /* SDWebImageDownloaderOperation.m in Sources */,
+				18FA6C331B8D68160038BF37 /* BridgeController.m in Sources */,
 				1861F8571B85573900E210E9 /* AppDelegate.m in Sources */,
 				1861F8A21B85597200E210E9 /* UIButton+WebCache.m in Sources */,
 				1861F8A11B85597200E210E9 /* SDWebImagePrefetcher.m in Sources */,

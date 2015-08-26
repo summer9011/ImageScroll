@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    </head>
+    <body>
+	<script>
+        var webViewBridge = null;
+        
+	function connectWebViewJavascriptBridge(callback) {
+            if (window.WebViewJavascriptBridge) {
+                callback(WebViewJavascriptBridge);
+            } else {
+                document.addEventListener('WebViewJavascriptBridgeReady', function() {
+                    callback(WebViewJavascriptBridge);
+                }, false);
+            }
+	};
+	
+	connectWebViewJavascriptBridge(function(bridge) {
+            webViewBridge = bridge;
+	});
+        
+        //发送数据给OC
+        function sendDataToOC() {
+            webViewBridge.send("aaa", function(responseData) {
+                log('JS got response', responseData)
+            });
+        }
+        
+        //调用OC的注册方法
+        function sendDataToOCRegisterFunction() {
+            webViewBridge.callHandler('testObjcCallback', '从JS来', function(response) {
+                log('JS got response', response);
+            });
+        };
+        
+	</script>
+        <div id='buttons'>
+            <input type="button" value="发送数据给OC" onclick="sendDataToOC();" />
+            <input type="button" value="调用OC的注册方法" onclick="sendDataToOCRegisterFunction();" />
+        </div>
+    </body>
+</html>

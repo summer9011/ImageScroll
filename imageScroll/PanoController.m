@@ -25,10 +25,10 @@
     self.navigationController.navigationBarHidden = YES;
     
     self.panoArr = @[
-                     @"http://192.168.0.100/pano/panos/tour.xml"
+                     @"http://localhost/pano/panos/tour.xml"
                      ];
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/pano/"];
+    NSURL *url = [NSURL URLWithString:@"http://localhost/pano/"];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     [self.webView loadRequest:request];
 }
@@ -62,7 +62,7 @@
 
 //进入场景
 - (void)loadScene {
-    NSString *loadScene = [NSString stringWithFormat:@"goScene('%@')", self.currentScene];
+    NSString *loadScene = [NSString stringWithFormat:@"goScene('%@', '0', '0')", self.currentScene];
     [self.webView stringByEvaluatingJavaScriptFromString:loadScene];
 }
 
