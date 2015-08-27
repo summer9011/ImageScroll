@@ -7,6 +7,7 @@
 //
 
 #import "PicHandlerController.h"
+#import "TouchImageView.h"
 
 @interface PicHandlerController ()
 
@@ -25,12 +26,16 @@
     [self initScrollView];
 }
 
+- (IBAction)goBack:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 - (IBAction)addPic:(id)sender {
     self.scrollView.scrollEnabled = NO;
     
     UIImage *picImage = [UIImage imageNamed:@"pic"];
     
-    UIImageView *touchImageView = [[UIImageView alloc] initWithImage:picImage];
+    TouchImageView *touchImageView = [[TouchImageView alloc] initWithImage:picImage];
     
     touchImageView.frame = CGRectMake(self.scrollView.contentOffset.x + CGRectGetWidth(self.scrollView.frame)/2.f - picImage.size.width/2.f, CGRectGetHeight(self.scrollView.frame)/2.f - picImage.size.height/2.f, picImage.size.width, picImage.size.height);
     

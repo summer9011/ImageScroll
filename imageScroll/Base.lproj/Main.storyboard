@@ -182,6 +182,11 @@
                                     <constraint firstAttribute="height" constant="44" id="3nU-Cv-Mz3"/>
                                 </constraints>
                                 <items>
+                                    <barButtonItem title="返回" id="i0i-Cl-ZFC">
+                                        <connections>
+                                            <action selector="goBack:" destination="4O1-BR-l9L" id="MSr-M6-eQq"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="amF-g9-xgr"/>
                                     <barButtonItem title="增加贴图" id="yRT-H3-Teh">
                                         <connections>

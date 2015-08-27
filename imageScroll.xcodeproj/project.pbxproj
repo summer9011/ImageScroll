@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		183AF4031B8EB99A00292936 /* TouchImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 183AF4021B8EB99A00292936 /* TouchImageView.m */; };
 		1861F8541B85573900E210E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1861F8531B85573900E210E9 /* main.m */; };
 		1861F8571B85573900E210E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1861F8561B85573900E210E9 /* AppDelegate.m */; };
 		1861F85A1B85573900E210E9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1861F8591B85573900E210E9 /* ViewController.m */; };
@@ -53,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		183AF4011B8EB99A00292936 /* TouchImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchImageView.h; sourceTree = "<group>"; };
+		183AF4021B8EB99A00292936 /* TouchImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchImageView.m; sourceTree = "<group>"; };
 		1861F84E1B85573900E210E9 /* imageScroll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = imageScroll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1861F8521B85573900E210E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1861F8531B85573900E210E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -170,6 +173,8 @@
 				18FA6C321B8D68160038BF37 /* BridgeController.m */,
 				18FA6C341B8D94DB0038BF37 /* PicHandlerController.h */,
 				18FA6C351B8D94DB0038BF37 /* PicHandlerController.m */,
+				183AF4011B8EB99A00292936 /* TouchImageView.h */,
+				183AF4021B8EB99A00292936 /* TouchImageView.m */,
 				1861F85B1B85573900E210E9 /* Main.storyboard */,
 				1861F85E1B85573900E210E9 /* Images.xcassets */,
 				1861F8601B85573900E210E9 /* LaunchScreen.xib */,
@@ -376,6 +381,7 @@
 				1861F89D1B85597200E210E9 /* SDWebImageDecoder.m in Sources */,
 				6E21710F1B8B37B700A75EEB /* PanoController.m in Sources */,
 				1861F8A41B85597200E210E9 /* UIImage+MultiFormat.m in Sources */,
+				183AF4031B8EB99A00292936 /* TouchImageView.m in Sources */,
 				1861F89F1B85597200E210E9 /* SDWebImageDownloaderOperation.m in Sources */,
 				18FA6C331B8D68160038BF37 /* BridgeController.m in Sources */,
 				1861F8571B85573900E210E9 /* AppDelegate.m in Sources */,
