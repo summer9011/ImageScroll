@@ -26,7 +26,7 @@
 #pragma mark - Init
 
 - (id)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
+    self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width + 20, frame.size.height)];
     
     if (self) {
         self.imageIndex = 0;
@@ -37,7 +37,7 @@
 }
 
 - (id)initWithFrame:(CGRect)frame imageIndex:(NSUInteger)index {
-    self = [super initWithFrame:frame];
+    self = [super initWithFrame:CGRectMake(frame.origin.x, frame.origin.y, frame.size.width + 20, frame.size.height)];
     
     if (self) {
         self.imageIndex = index;
@@ -81,7 +81,7 @@
     NSUInteger imageCount = [self.imageScrollDelegate numberOfItems];
     
     for (int i = 0; i < imageCount; i ++) {
-        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame)*i, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
+        UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame)*i, 0, CGRectGetWidth(self.frame) - 20, CGRectGetHeight(self.frame))];
         scrollView.showsHorizontalScrollIndicator = NO;
         scrollView.showsVerticalScrollIndicator = NO;
         scrollView.delegate = self;
